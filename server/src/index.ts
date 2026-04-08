@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import { app } from "./app";
-import { connectDatabase } from "./config/database";
-import { env } from "./config/env";
+import { app } from "./app.js";
+import { connectDatabase } from "./config/database.js";
+import { env } from "./config/env.js";
 
 const bootstrap = async () => {
   await connectDatabase();

@@ -1,10 +1,10 @@
 import { Router } from "express";
 import mongoose from "mongoose";
 import { z } from "zod";
-import { authenticateRequest } from "../middleware/auth";
-import { ApplicationModel } from "../models/Application";
-import { applicationStatuses } from "../types/application";
-import { ApiError } from "../utils/http";
+import { authenticateRequest } from "../middleware/auth.js";
+import { ApplicationModel } from "../models/Application.js";
+import { applicationStatuses } from "../types/application.js";
+import { ApiError } from "../utils/http.js";
 
 const applicationRouter = Router();
 applicationRouter.use(authenticateRequest);

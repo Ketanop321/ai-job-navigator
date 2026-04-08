@@ -1,8 +1,8 @@
 import { Router, type Response } from "express";
 import { z } from "zod";
-import { authenticateRequest } from "../middleware/auth";
-import { generateResumeSuggestions, parseJobDescription } from "../services/groq.service";
-import { ApiError } from "../utils/http";
+import { authenticateRequest } from "../middleware/auth.js";
+import { generateResumeSuggestions, parseJobDescription } from "../services/groq.service.js";
+import { ApiError } from "../utils/http.js";
 
 const aiRouter = Router();
 aiRouter.use(authenticateRequest);

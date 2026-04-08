@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { env } from "../config/env";
-import type { ParsedJobDetails } from "../types/application";
-import { ApiError } from "../utils/http";
+import { env } from "../config/env.js";
+import type { ParsedJobDetails } from "../types/application.js";
+import { ApiError } from "../utils/http.js";
 
 interface GroqChatResponse {
   choices?: Array<{

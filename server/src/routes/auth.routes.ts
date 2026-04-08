@@ -2,10 +2,10 @@ import bcrypt from "bcryptjs";
 import { Router } from "express";
 import jwt, { type SignOptions } from "jsonwebtoken";
 import { z } from "zod";
-import { env } from "../config/env";
-import { authenticateRequest } from "../middleware/auth";
-import { UserModel } from "../models/User";
-import { ApiError } from "../utils/http";
+import { env } from "../config/env.js";
+import { authenticateRequest } from "../middleware/auth.js";
+import { UserModel } from "../models/User.js";
+import { ApiError } from "../utils/http.js";
 
 const authRouter = Router();
 

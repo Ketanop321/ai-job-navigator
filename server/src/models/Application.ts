@@ -1,5 +1,5 @@
 import { Schema, model, type Document, type Types } from "mongoose";
-import { applicationStatuses, type ApplicationStatus, type ParsedJobDetails } from "../types/application";
+import { applicationStatuses, type ApplicationStatus, type ParsedJobDetails } from "../types/application.js";
 
 export interface ApplicationDocument extends Document {
   userId: Types.ObjectId;

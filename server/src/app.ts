@@ -1,10 +1,10 @@
 import cors from "cors";
 import express from "express";
-import { env } from "./config/env";
-import { aiRouter } from "./routes/ai.routes";
-import { applicationRouter } from "./routes/applications.routes";
-import { authRouter } from "./routes/auth.routes";
-import { ApiError, errorHandler } from "./utils/http";
+import { env } from "./config/env.js";
+import { aiRouter } from "./routes/ai.routes.js";
+import { applicationRouter } from "./routes/applications.routes.js";
+import { authRouter } from "./routes/auth.routes.js";
+import { ApiError, errorHandler } from "./utils/http.js";
 
 const app = express();
 

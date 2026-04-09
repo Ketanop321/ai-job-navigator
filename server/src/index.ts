@@ -6,8 +6,10 @@ import { env } from "./config/env.js";
 const bootstrap = async () => {
   await connectDatabase();
 
-  const server = app.listen(env.SERVER_PORT, () => {
-    console.log(`API server listening on port ${env.SERVER_PORT}`);
+  const serverPort = Number(process.env.PORT ?? env.SERVER_PORT);
+
+  const server = app.listen(serverPort, () => {
+    console.log(`API server listening on port ${serverPort}`);
   });
 
   const shutdown = async () => {

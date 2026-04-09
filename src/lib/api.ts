@@ -1,7 +1,12 @@
 import type { AuthResponse, AuthUser } from "@/types/auth";
 import type { ApplicationPayload, JobApplication, ParseJdResponse } from "@/types/application";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:5000/api";
+const LOCAL_API_BASE_URL = "http://localhost:5000/api";
+const PRODUCTION_API_BASE_URL = "https://ai-job-navigator-hsug.onrender.com/api";
+
+const API_BASE_URL = (
+  import.meta.env.VITE_API_BASE_URL ?? (import.meta.env.PROD ? PRODUCTION_API_BASE_URL : LOCAL_API_BASE_URL)
+).replace(/\/$/, "");
 
 interface ApiErrorPayload {
   message?: string;

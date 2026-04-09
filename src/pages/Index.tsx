@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, BriefcaseBusiness, Sparkles } from "lucide-react";
-import ThemeToggle from "@/components/ThemeToggle";
+import { ArrowRight, Sparkles } from "lucide-react";
+import PageNavigation from "@/components/PageNavigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth } from "@/context/useAuth";
@@ -11,19 +11,7 @@ const Index = () => {
   return (
     <div className="min-h-screen px-4 py-10 sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-6xl space-y-8">
-        <header className="flex items-center justify-between rounded-xl border border-border/60 bg-card/90 p-4">
-          <div className="inline-flex items-center gap-2">
-            <BriefcaseBusiness className="h-5 w-5 text-primary" />
-            <p className="text-lg font-semibold">AI Job Application Tracker</p>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <ThemeToggle />
-            <Button asChild variant="outline">
-              <Link to={user ? "/app" : "/auth"}>{user ? "Open App" : "Login"}</Link>
-            </Button>
-          </div>
-        </header>
+        <PageNavigation />
 
         <section className="rounded-xl border border-border/60 bg-card/90 p-6 sm:p-10">
           <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Internship Assignment Build</p>

@@ -1,11 +1,11 @@
 import { useMemo, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import { Bell, BriefcaseBusiness, Download, LogOut, Plus, Search } from "lucide-react";
-import ThemeToggle from "@/components/ThemeToggle";
+import { Bell, BriefcaseBusiness, Download, Plus, Search } from "lucide-react";
 import AddApplicationDialog from "@/components/kanban/AddApplicationDialog";
 import ApplicationCard from "@/components/kanban/ApplicationCard";
 import ApplicationDetailDialog from "@/components/kanban/ApplicationDetailDialog";
+import PageNavigation from "@/components/PageNavigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -49,7 +49,7 @@ const getOverdueByDays = (application: JobApplication) => {
 };
 
 const DashboardPage = () => {
-  const { token, user, logout } = useAuth();
+  const { token, user } = useAuth();
   const queryClient = useQueryClient();
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -205,6 +205,8 @@ const DashboardPage = () => {
   return (
     <div className="min-h-screen px-4 py-6 sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-7xl space-y-6">
+        <PageNavigation />
+
         <header className="flex flex-col justify-between gap-4 rounded-xl border border-border/60 bg-card/90 p-4 sm:flex-row sm:items-center">
           <div>
             <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Intern Assignment Build</p>
@@ -217,7 +219,6 @@ const DashboardPage = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <ThemeToggle />
             <Button variant="outline" className="gap-2" onClick={handleExportCsv}>
               <Download className="h-4 w-4" />
               Export CSV
@@ -225,10 +226,6 @@ const DashboardPage = () => {
             <Button className="gap-2" onClick={() => setIsAddOpen(true)}>
               <Plus className="h-4 w-4" />
               Add Application
-            </Button>
-            <Button variant="outline" className="gap-2" onClick={logout}>
-              <LogOut className="h-4 w-4" />
-              Logout
             </Button>
           </div>
         </header>

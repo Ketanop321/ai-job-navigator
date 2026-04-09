@@ -12,7 +12,7 @@ Full-stack internship assignment project for tracking job applications with AI-a
 - AI-generated resume bullet suggestions
 - Drag and drop stage updates
 - Search, filters, and dashboard stats
-- Optional enhancements: streaming AI parse feedback, reminders/overdue highlighting, CSV export, dark mode
+- Optional enhancements: streaming AI parse feedback, reminders/overdue highlighting, CSV export
 
 ## Architecture Diagram
 
@@ -50,7 +50,12 @@ flowchart LR
 - Backend: Node.js, Express, TypeScript, Mongoose
 - Database: MongoDB Atlas
 - Authentication: JWT, bcryptjs
-- AI: Groq API
+- AI: Groq API (OpenAI-compatible Chat Completions format)
+
+## AI Provider Note
+
+This project uses Groq instead of OpenAI directly due budget constraints for API usage.
+The implementation still follows the same structured JSON-output approach required by the assignment via an OpenAI-compatible API format.
 
 ## Environment Variables
 
@@ -86,3 +91,11 @@ Copy .env.example to .env and set:
 - Applications: GET /api/applications, POST /api/applications, GET /api/applications/:id, PUT /api/applications/:id, PATCH /api/applications/:id/status, DELETE /api/applications/:id
 - AI: POST /api/ai/parse-jd, POST /api/ai/parse-jd/stream
 - Health: GET /api/health
+
+## Engineering Decisions
+
+- AI logic is isolated in a backend service layer to keep route handlers thin.
+- Strict input and output validation is handled with zod for safer runtime behavior.
+- Auth is JWT-based with backend and frontend route protection plus persisted login.
+- React Query is used for API state, loading/error handling, and cache invalidation.
+- Defensive parsing handles non-ideal AI payload shapes to avoid frontend crashes.
